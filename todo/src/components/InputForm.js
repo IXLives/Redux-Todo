@@ -11,16 +11,23 @@ import {
 } from 'reactstrap'
 
 class InputForm extends React.Component {
-  constructor() {
-    super();
+
+
+  submitTask = e => {
+    e.preventDefault()
+    console.log(e)
+  }
+
+  handleChange = e => {
+
   }
 
   render() {
     return (
-        <Form>
+        <Form onSubmit = {this.submitTask}>
             <FormGroup>
                 <Label for = 'todoItem'>Task</Label>
-                <Input type = 'text' name = 'todo' id = 'todoItem' placeholder = 'Enter a task' />
+                <Input type = 'text' name = 'todo' id = 'todoItem' placeholder = 'Enter a task' onChange = {this.handleChange}/>
                 <FormText color = 'muted'>
                     Enter the task you wish to add to your Todo list
                 </FormText>

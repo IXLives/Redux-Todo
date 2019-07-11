@@ -1,6 +1,7 @@
 const initialState = {
     tasks: {
-        
+        todo: '',
+        id: 0
     }
 }
 
