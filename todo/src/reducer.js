@@ -1,10 +1,35 @@
+import { ADD_TODO, TOGGLE_TODO } from "./actions";
+
 const initialState = {
-    tasks: {
-        todo: '',
-        id: 0
-    }
-}
+    todos: [
+
+    ]
+};
 
 export default function(state = initialState, action) {
-    return state
+  switch (action.type) {
+    case ADD_TODO: {
+      const newTask = [{
+        task: action.payload,
+        id: Date.now(),
+        completed: false
+      }];
+      console.log(state)
+      console.log(newTask)
+      const newList = state.todos.concat(newTask)
+
+      console.log(newList)
+
+      return {
+        ...state,
+        newList
+      };
+    }
+
+    case TOGGLE_TODO: {
+      return state;
+    }
+    default:
+      return state;
+  }
 }

@@ -11,15 +11,29 @@ import {
 } from 'reactstrap'
 
 class InputForm extends React.Component {
+  constructor(){
+    super()
+    this.state = {
+      task: '',
+    }
+  }
 
 
   submitTask = e => {
     e.preventDefault()
-    console.log(e)
+    const { task } = this.state;
+    this.props.addTodo(task)
+
+    this.setState({
+      task: '',
+    })
   }
 
   handleChange = e => {
-
+    e.preventDefault()
+    this.setState({
+      [e.target.name]: e.target.value
+    })
   }
 
   render() {
@@ -27,7 +41,7 @@ class InputForm extends React.Component {
         <Form onSubmit = {this.submitTask}>
             <FormGroup>
                 <Label for = 'todoItem'>Task</Label>
-                <Input type = 'text' name = 'todo' id = 'todoItem' placeholder = 'Enter a task' onChange = {this.handleChange}/>
+                <Input type = 'text' name = 'task' id = 'todoItem' placeholder = 'Enter a task' value = {this.state.task} onChange = {this.handleChange}/>
                 <FormText color = 'muted'>
                     Enter the task you wish to add to your Todo list
                 </FormText>
@@ -40,7 +54,7 @@ class InputForm extends React.Component {
 
 const mapStateToProps = state => {
   return {
-      tasks: state.tasks
+      tasks: state.todos
   }
 };
 
