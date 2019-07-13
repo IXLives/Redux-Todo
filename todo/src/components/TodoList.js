@@ -4,17 +4,16 @@ import { toggleTodo } from "../actions";
 import { Card, CardBody, CardTitle, CardText, Button } from "reactstrap";
 
 function TodoList(props) {
-    console.log(props)
   return (
     <Card>
       <CardBody>
         <CardTitle>
           Todo List
-          {props.todos.map((task, index)  => {
+          {props.todos.map((task, index) => {
             return (
-              <div key = {index}>
+              <div key={index}>
                 <CardText>{task.task.todo}</CardText>
-                <Button>Complete</Button>
+                <Button onClick = {props.toggleTodo}>Complete</Button>
               </div>
             );
           })}
