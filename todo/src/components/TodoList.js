@@ -10,10 +10,10 @@ function TodoList(props) {
       <CardBody>
         <CardTitle>
           Todo List
-          {props.tasks.map(task => {
+          {props.todos.map((task, index)  => {
             return (
-              <div>
-                <CardText>{task.task}</CardText>
+              <div key = {index}>
+                <CardText>{task.task.todo}</CardText>
                 <Button>Complete</Button>
               </div>
             );
@@ -26,7 +26,7 @@ function TodoList(props) {
 
 const mapStateToProps = state => {
   return {
-    tasks: state.todos
+    todos: state.todos
   };
 };
 

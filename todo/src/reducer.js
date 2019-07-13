@@ -22,7 +22,7 @@ export default function(state = initialState, action) {
 
       return {
         ...state,
-        newList
+        todos : newList
       };
     }
 
