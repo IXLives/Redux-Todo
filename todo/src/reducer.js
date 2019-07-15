@@ -27,8 +27,22 @@ export default function(state = initialState, action) {
     }
 
     case TOGGLE_TODO: {
-      return state;
+      console.log('Toggled')
+      console.log(action.payload)
+      const newTask = [{
+        task: action.payload.task,
+        id: action.payload.id,
+        completed: true,
+      }]
+
+      const newState = Object.assign(state.todos, newTask)
+      
+      return {
+        ...state,
+        todos: newState
+      };
     }
+    
     default:
       return state;
   }
