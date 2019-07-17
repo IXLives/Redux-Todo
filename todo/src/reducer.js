@@ -14,11 +14,11 @@ export default function(state = initialState, action) {
         id: Date.now(),
         completed: false
       }];
-      console.log(state)
-      console.log(newTask)
+      // console.log(state)
+      // console.log(newTask)
       const newList = state.todos.concat(newTask)
 
-      console.log(newList)
+      // console.log(newList)
 
       return {
         ...state,
@@ -28,14 +28,19 @@ export default function(state = initialState, action) {
 
     case TOGGLE_TODO: {
       console.log('Toggled')
-      console.log(action.payload)
+      console.log(state)
+      
       const newTask = [{
-        task: action.payload.task,
-        id: action.payload.id,
-        completed: true,
+        task: action.payload.todo.task.todo,
+        id: action.payload.todo.id,
+        completed: !action.payload.todo.completed,
       }]
 
+      console.log(newTask)
+
       const newState = Object.assign(state.todos, newTask)
+
+      console.log(newState)
       
       return {
         ...state,

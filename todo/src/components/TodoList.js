@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { toggleTodo } from "../actions";
+import TodoItem from './TodoItem'
 import { Card, CardBody, CardTitle, CardText } from "reactstrap";
 
 function TodoList(props) {
@@ -11,7 +12,7 @@ function TodoList(props) {
           Todo List
           {props.todos.map((task, index) => {
             return (
-              <CardText onClick={() => props.toggleTodo(task)}>
+              <CardText key = {index} onClick={() => props.toggleTodo(task)}>
                 {task.task.todo}
               </CardText>
             );

@@ -31,3 +31,8 @@
     transform: rotate(360deg);
   }
 }
+
+p .task .complete {
+  color: grey;
+  background-color: black;
+}
