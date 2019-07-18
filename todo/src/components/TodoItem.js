@@ -4,10 +4,10 @@ import {connect} from 'react-redux'
 
 class TodoItem extends React.Component {
   
-    toggleTask(e) {
+    toggleTask = (e) => {
         e.preventDefault()
         console.log(e.target.id)
-        this.props.toggleTodo(e.target.id)
+        this.props.toggleTodo(this.props)
     }
 
     render() {

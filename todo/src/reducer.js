@@ -31,22 +31,22 @@ export default function(state = initialState, action) {
       console.log('Toggled')
       console.log(state)
 
-      const newTask = [{
-        task: action.payload.todo.task.todo,
-        id: action.payload.todo.id,
-        completed: !action.payload.todo.completed,
-      }]
+      // const newTask = [{
+      //   task: action.payload.todo,
+      //   id: action.payload.id,
+      //   completed: !action.payload.completed,
+      // }]
 
-      console.log(newTask)
+      // console.log(newTask)
 
-      const newState = Object.assign(state.todos, newTask)
+      // const newState = Object.assign(state.todos, newTask)
 
-      console.log(newState)
+      // console.log(newState)
       
-      return {
-        ...state,
-        todos: newState
-      };
+      // return {
+      //   ...state,
+      //   todos: newState
+      // };
     }
     
     default:
