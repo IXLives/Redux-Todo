@@ -1,8 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { toggleTodo } from "../actions";
 import TodoItem from './TodoItem'
-import { Card, CardBody, CardTitle, CardText } from "reactstrap";
+import { Card, CardBody, CardTitle } from "reactstrap";
 
 function TodoList(props) {
   return (
@@ -12,9 +11,8 @@ function TodoList(props) {
           Todo List
           {props.todos.map((task, index) => {
             return (
-              <CardText key = {index} onClick={() => props.toggleTodo(task)}>
-                {task.task.todo}
-              </CardText>
+              <TodoItem key = {index} task = {task.task} id = {task.id}
+              />
             );
           })}
         </CardTitle>
@@ -29,11 +27,6 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = {
-  toggleTodo: toggleTodo
-};
-
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(TodoList);

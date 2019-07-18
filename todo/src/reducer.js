@@ -9,8 +9,9 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case ADD_TODO: {
+      console.log(action.payload)
       const newTask = [{
-        task: action.payload,
+        task: action.payload.todo,
         id: Date.now(),
         completed: false
       }];
@@ -29,7 +30,7 @@ export default function(state = initialState, action) {
     case TOGGLE_TODO: {
       console.log('Toggled')
       console.log(state)
-      
+
       const newTask = [{
         task: action.payload.todo.task.todo,
         id: action.payload.todo.id,
